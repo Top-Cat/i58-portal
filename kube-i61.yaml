@@ -30,6 +30,13 @@ spec:
                 secretKeyRef:
                   name: i61
                   key: pass
+            - name: DB_DRIVER
+              value: postgres
+            - name: DB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: i61
+                  key: db
 ---
 kind: Service
 apiVersion: v1
