@@ -14,11 +14,22 @@ spec:
         app: i61portal
     spec:
       containers:
-        - image: iamtopcat/i61portal
+        - image: iamtopcat/i61-portal
           name: i61-portal
           ports:
             - name: web
               containerPort: 8080
+          env:
+            - name: USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: i61
+                  key: user
+            - name: PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: i61
+                  key: pass
 ---
 kind: Service
 apiVersion: v1
