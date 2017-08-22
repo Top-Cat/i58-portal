@@ -1,0 +1,37 @@
+---
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: i61-portal
+  labels:
+    app: i61portal
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  template:
+    metadata:
+      labels:
+        app: i61portal
+    spec:
+      containers:
+        - image: iamtopcat/i61portal
+          name: i61-portal
+          ports:
+            - name: web
+              containerPort: 8080
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: i61-portal-service
+spec:
+  ports:
+  - name: i61portal-web
+    port: 6161
+    targetPort: web
+  selector:
+    app: i61portal
+  externalIPs:
+  - 10.1.1.4
+  - 10.0.0.1
+  - 82.28.159.171
