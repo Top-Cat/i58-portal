@@ -14,7 +14,7 @@ spec:
         app: i61portal
     spec:
       containers:
-        - image: iamtopcat/i61-portal
+        - image: iamtopcat/i61-portal:${BUILD_NUMBER}
           name: i61-portal
           ports:
             - name: web
