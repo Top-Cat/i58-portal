@@ -37,6 +37,11 @@ spec:
                 secretKeyRef:
                   name: i61
                   key: db
+            - name: ANALYTICS_ID
+              valueFrom:
+                secretKeyRef:
+                  name: i61
+                  key: analyticsid
 ---
 kind: Service
 apiVersion: v1
